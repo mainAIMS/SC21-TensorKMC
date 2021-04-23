@@ -1,0 +1,142 @@
+SPPARKS (8 Jul 2015)
+==Thu Apr  8 10:30:08 2021
+seed                     2001
+==Thu Apr  8 10:30:08 2021
+app_style                vacancy xyz float32 restart off flops 1000000
+==Thu Apr  8 10:30:08 2021
+dimension                3
+==Thu Apr  8 10:30:08 2021
+lattice                  bcc 2.87
+==Thu Apr  8 10:30:08 2021
+region                   box block 0 400 0 400 0 400
+==Thu Apr  8 10:30:08 2021
+ghost                    10
+==Thu Apr  8 10:30:08 2021
+create_box               box
+Created box = (0 0 0) to (1148 1148 1148)
+  1 by 1 by 1 processor grid
+==Thu Apr  8 10:30:08 2021
+create_sites             box value site 1 count auto
+Creating sites ...
+Begining structured_lattice ...Thu Apr  8 10:30:08 2021
+ structured_lattice: before 4-level-loop(mijk)
+Thu Apr  8 10:30:08 2021
+allocate 128000000 local sites and 0 ghost sites for each task
+ structured_lattice: after 4-level-loop(mijk): 14162.785 ms
+ structured_lattice: before add_ghost
+Thu Apr  8 10:30:22 2021
+ structured_lattice: before MPI_Allreduce
+Thu Apr  8 10:30:22 2021
+  128000000 sites
+Begining transport ...Thu Apr  8 10:30:22 2021
+End transport ...Thu Apr  8 10:30:54 2021
+==Thu Apr  8 10:30:54 2021
+set                      i1 value 0 fraction 8e-6   local if i1 = 1
+set: begin set site value nlocal 128000000 max 128000000
+  1024 settings made for i1: 1.530 s
+==Thu Apr  8 10:30:54 2021
+set                      i1 value 2 fraction 0.0134 local if i1 = 1
+set: begin set site value nlocal 128000000 max 128000000
+  1715200 settings made for i1: 5315.190 s
+==Thu Apr  8 10:31:00 2021
+barrier                  Fe 0.65
+==Thu Apr  8 10:31:00 2021
+barrier                  Cu 0.56
+==Thu Apr  8 10:31:00 2021
+neighbor_size            8
+Include up to 8th neighbors
+==Thu Apr  8 10:31:00 2021
+pair_style               precompute CuFe_tag12_v1.model batch 7 pad log 0 width 16
+==Thu Apr  8 10:31:00 2021
+vac_jump_max_dist        110.25
+==Thu Apr  8 10:31:00 2021
+dump_memory_usage        memory.log
+==Thu Apr  8 10:31:00 2021
+use_post_comm            yes
+==Thu Apr  8 10:31:00 2021
+test_comm                no
+==Thu Apr  8 10:31:00 2021
+new_vac_iter             yes
+==Thu Apr  8 10:31:00 2021
+use_recal_list           yes
+==Thu Apr  8 10:31:00 2021
+temperature              573.0
+==Thu Apr  8 10:31:00 2021
+solve_style              tree
+==Thu Apr  8 10:31:00 2021
+sector                   yes tstop 1e-8
+==Thu Apr  8 10:31:00 2021
+stats                    1e-8
+==Thu Apr  8 10:31:00 2021
+run                      1e-7
+AppLattice: begin comm->init... memory left: 7314
+Thu Apr  8 10:31:54 2021
+Global memory sync: minimum = 7314 MB
+AppLattice: after comm->init... memory left: 7314
+Thu Apr  8 10:32:20 2021
+Read CuFe_tag12_v1.model
+Read Cu/1: [64, 128, 128]
+Read Cu/2: [128, 128, 128]
+Read Cu/3: [128, 128, 128]
+Read Cu/4: [128, 128, 128]
+Read Cu/5: [128, 64, 64]
+Read Cu/-1: [64, 1, 1]
+Read Fe/1: [64, 128, 128]
+Read Fe/2: [128, 128, 128]
+Read Fe/3: [128, 128, 128]
+Read Fe/4: [128, 128, 128]
+Read Fe/5: [128, 64, 64]
+Read Fe/-1: [64, 1, 1]
+Setting up run ...
+AppLattice::setup app... memory left: 7310
+Thu Apr  8 10:32:21 2021
+AppVacancy::setup_app
+AppLattice::after setup app... memory left: 6818
+Thu Apr  8 10:33:46 2021
+AppLattice::after perform_all... memory left: 6818
+Thu Apr  8 10:33:46 2021
+Global memory sync: minimum = 6818 MB
+AppLattice: compute propensity for set 0
+VAC cache initialized
+AppLattice: compute propensity for set 1
+AppLattice: compute propensity for set 2
+AppLattice: compute propensity for set 3
+AppLattice: compute propensity for set 4
+AppLattice: compute propensity for set 5
+AppLattice: compute propensity for set 6
+AppLattice: compute propensity for set 7
+AppLattice::after solve init... memory left: 5026
+Thu Apr  8 10:33:50 2021
+AppLattice: setup_end_app
+        Time         Naccept    Nreject    Nsweeps          CPU
+           0               0          0          0        0.000
+after_setup: memory left: 5026
+after setup
+Thu Apr  8 10:33:50 2021
+       1e-08            1273          0          1        1.983
+       2e-08            2443          0          2        3.822
+       3e-08            3520          0          3        5.532
+       4e-08            4548          0          4        7.167
+       5e-08            5552          0          5        8.776
+       6e-08            6616          0          6       10.472
+       7e-08            7643          0          7       12.106
+       8e-08            8680          0          8       13.758
+       9e-08            9667          0          9       15.344
+       1e-07           10683          0         10       16.963
+     1.1e-07           11708          0         11       18.601
+Loop time of 18.602 on 1 procs
+
+Extra app time  = 0
+Sess->run time (97198080) = 9.21941
+Solve time (%)  = 0.0257029 (0.138172)
+Update time (%) = 1.72397 (9.26763)
+Comm  time (%)  = 0 (0)
+Outpt time (%)  = 0.0111743 (0.0600703)
+App   time (%)  = 16.8368 (90.5105)
+Other time (%) = 0.00438911 (0.0235948)
+Rank0: Total calculate time: 0.730937, 13.627599
+Rank0: Total sess->run time(4825088, 97198080): 0.384975, 9.219407
+Rank0: Total build time(1024, 11870): 0.340054, 4.102830
+Rank0: site_event: total=16.813994, core(11797)=15.396090, jump=1.238071
+Rank0: Total vap time: 0.082628, 0.931134
+Rank0: Total tensor time: 0.000241, 0.012820
